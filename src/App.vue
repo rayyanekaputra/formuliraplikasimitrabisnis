@@ -1,6 +1,6 @@
 <script setup>
 import RegistrasiCustomerView from './views/RegistrasiCustomerView.vue';
-import './styles.sass'
+import './styles.scss'
 </script>
 
 <template>
