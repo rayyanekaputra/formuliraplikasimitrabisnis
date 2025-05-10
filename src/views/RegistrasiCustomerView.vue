@@ -1,7 +1,8 @@
 <template>
     <div class=".container-fluid">
         <form action="">
-            <table class="table table-bordered table-responsive rounded-12" >
+            <table class="table table-bordered table-responsive rounded-12">
+                <!-- FORMAT TABEL, 12 TERSEDIA, 6 JI DIPAKE -->
                 <colgroup>
                     <col span="12">
                     </col>
@@ -36,25 +37,26 @@
                         </td>
                     </tr>
 
+                    <!-- SECTION: INFORMASI UMUM  -->
                     <tr>
                         <th colspan="6" scope="row" class="text-center table-light">
                             Informasi Umum
                         </th>
                     </tr>
                     <tr>
-                        <th scope="row">Nama Perusahaan</th>
-                        <td colspan="4">
+                        <th scope="row">Nama Perusahaan*</th>
+                        <td colspan="5">
                             <input v-model="namaPerusahaan" class="form-control" type="text"
                                 placeholder="Isi dengan nama di KTP jika tidak ada NPWP">
                         </td>
                     </tr>
                     <tr>
-                        <th scope="row">No. NPWP</th>
-                        <td class="align-middle" colspan="2">
+                        <th scope="row">No. NPWP*</th>
+                        <td class="align-middle" colspan="3">
                             <input v-model="nomorNPWP" class="form-control" type="text"
                                 placeholder="Isi dengan nama di KTP jika tidak ada NPWP">
                         </td>
-                        <td class="">
+                        <td colspan="3">
                             <div>
                                 <input name="statusPKP" v-model="statusPKP" class="me-2 form-check-input" type="radio"
                                     value="PKP">
@@ -70,8 +72,8 @@
 
                     </tr>
                     <tr>
-                        <th scope="row">No. Telf</th>
-                        <td class="align-middle">
+                        <th scope="row">No. Telf*</th>
+                        <td class="align-middle" colspan="3">
                             <input v-model="nomorTelfon" class="form-control" type="text"
                                 placeholder="Nomor telefon perusahaan">
                         </td>
@@ -83,11 +85,106 @@
 
                     </tr>
                     <tr>
-                        <th scope="row">Alamat</th>
-                        <td class="align-middle" colspan="4">
-                            <textarea class=" form-control" v-model="alamat" placeholder="Alamat sesuai KTP jika tak mempunyai NPWP"></textarea>
+                        <th scope="row">Alamat*</th>
+                        <td class="align-middle" colspan="5">
+                            <textarea class=" form-control" v-model="alamat"
+                                placeholder="Alamat sesuai KTP jika tak mempunyai NPWP"></textarea>
                         </td>
                     </tr>
+                    <tr>
+                        <td class="text-center align-middle" colspan="6">
+                            *Sesuai dengan yang tertera pada kartu NPWP
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Kota*</th>
+                        <td class="align-middle" colspan="3">
+                            <input v-model="tempatKota" class="form-control" type="text"
+                                placeholder="Isi dengan nama di KTP jika tidak ada NPWP">
+                        </td>
+                        <td class="">
+                            PO Box
+                        </td>
+                        <td class="">
+                            <input v-model="tempatPOBox" class="form-control" type="text" placeholder="Jika ada">
+                        </td>
+
+
+                    </tr>
+
+                    <!-- SECTION: INFORMASI BISNIS -->
+                    <tr>
+                        <th colspan="6" scope="row" class="text-center table-light">
+                            Informasi Bisnis
+                        </th>
+                    </tr>
+                    <tr>
+                        <th scope="row" colspan="1">Tahun Operasi*</th>
+                        <td colspan="1">
+                            Tahun
+                        </td>
+                        <td colspan="1">
+                            Tahun
+                        </td>
+                        <td colspan="1">
+                            Tahun
+                        </td>
+                        <td colspan="1">
+                            Tahun
+                        </td>
+                        <td colspan="1">
+                            Tahun
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+                        <th scope="row">Tahun Operasi*</th>
+                        <td colspan="1">
+                            Tahun
+                        </td>
+                        <td colspan="2">
+                            <input v-model="tahunOperasi" class="form-control" type="text"
+                                placeholder="Isi dengan nama di KTP jika tidak ada NPWP">
+                        </td>
+                        <td colspan="1">
+                            Bulan
+                        </td>
+                        <td colspan="2">
+                            <input v-model="bulanOperasi" class="form-control" type="text" placeholder="01">
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <th scope="row">Alamat*</th>
+                        <td class="align-middle" colspan="4">
+                            <textarea class=" form-control" v-model="alamat"
+                                placeholder="Alamat sesuai KTP jika tak mempunyai NPWP"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center align-middle" colspan="4">
+                            *Sesuai dengan yang tertera pada kartu NPWP
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Kota*</th>
+                        <td class="align-middle">
+                            <input v-model="tempatKota" class="form-control" type="text"
+                                placeholder="Isi dengan nama di KTP jika tidak ada NPWP">
+                        </td>
+                        <td class="text-center align-middle">
+                            PO Box
+                        </td>
+                        <td class="align-middle">
+                            <input v-model="tempatPOBox" class="form-control" type="text" placeholder="Jika ada">
+                        </td>
+
+
+                    </tr>
+
 
                 </tbody>
             </table>
