@@ -1,10 +1,6 @@
 <template>
     <div class="table-responsive">
-        <VueHtml2pdf :show-layout="false" :float-layout="true" :enable-download="false" :preview-modal="false"
-            filename="hehehe" :paginate-elements-by-height="1100" :pdf-quality="2" pdf-format="a4"
-            pdf-orientation="portrait" pdf-content-width="800px" :manual-pagination="false">
-
-            <form @submit.prevent="submitFormRegistrasi" slot="pdf-content">
+            <form @submit.prevent="submitFormRegistrasi">
                 <table class="table table-bordered text-wrap text-break" ref="formRegistrasiRef" >
                     <!-- FORMAT TABEL, 12 TERSEDIA, 6 JI DIPAKE -->
                     <colgroup>
@@ -280,18 +276,15 @@
                         </tr>
                     </tbody>
                 </table>
-                <button class="btn btn-primary w-sm-100" type="submit">Registrasi Customer</button>
-                <button class="btn btn-primary w-sm-100" @click="exportToPDF">Simpan atau Print PDF</button>
+                <button class=" btn btn-primary w-sm-100 d-print-none" type="submit">Registrasi Customer</button>
+                <button class="btn btn-primary w-sm-100 d-print-none" @click="exportToPDF">Simpan atau Print PDF</button>
             </form>
-        </VueHtml2pdf>
-
 
     </div>
 </template>
 
 <script setup>
 import { ref, reactive } from 'vue';
-import VueHtml2pdf from 'vue-html2pdf'
 
 
 const formRegistrasi = reactive({
@@ -320,9 +313,7 @@ const formRegistrasi = reactive({
 
 const formRegistrasiRef = ref(null) //karena ini sebelum onMounted ter-render. nanti ter-override sendiri onMounted dari ref div di atas.
 
-const exportToPDF = () => {
-    formRegistrasiRef.value.generatePdf()
-}
+const exportToPDF = () => window.print();
 
 const submitFormRegistrasi = () => {
     const formRegistrasiJson = JSON.stringify(formRegistrasi)
