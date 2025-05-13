@@ -6,7 +6,6 @@
                 <colgroup>
                     <col span="12">
                     </col>
-
                 </colgroup>
                 <thead class="table-dark">
                     <tr>
@@ -16,7 +15,6 @@
                             </h1>
                         </th>
                     </tr>
-
                 </thead>
                 <tbody>
                     <tr>
@@ -26,7 +24,6 @@
                                 kartu NPWP, KTP, SITU, SIUP
                             </div>
                         </td>
-
                     </tr>
                     <tr>
                         <td colspan="6" class="text-center">
@@ -46,49 +43,46 @@
                     <tr>
                         <th scope="row">Nama Perusahaan*</th>
                         <td colspan="5">
-                            <input v-model="namaPerusahaan" class="w-100 form-control " type="text"
-                                placeholder="Isi dengan nama di KTP jika tidak ada NPWP">
+                            <input v-model="formRegistrasi.informasiUmum.namaPerusahaan" class="w-100 form-control"
+                                type="text" placeholder="Isi dengan nama di KTP jika tidak ada NPWP" required>
                         </td>
                     </tr>
                     <tr>
                         <th scope="row">No. NPWP*</th>
                         <td class="align-middle" colspan="3">
-                            <input v-model="nomorNPWP" class="w-100 form-control" type="text"
-                                placeholder="Isi dengan NIK di KTP jika tidak ada NPWP">
+                            <input v-model="formRegistrasi.informasiUmum.nomorNPWP" class="w-100 form-control"
+                                type="text" placeholder="Isi dengan NIK di KTP jika tidak ada NPWP" required>
                         </td>
                         <td colspan="3">
                             <div>
-                                <input name="statusPKP" v-model="statusPKP" class="me-2 form-check-input" type="radio"
-                                    value="PKP">
+                                <input name="statusPKP" v-model="formRegistrasi.informasiUmum.statusPKP"
+                                    class="me-2 form-check-input" type="radio" value="PKP" required>
                                 <label class="form-check-label" for="PKP">PKP</label>
                             </div>
                             <div>
-                                <input name="statusPKP" v-model="statusPKP" class="me-2 form-check-input" type="radio"
-                                    value="Non-PKP">
+                                <input name="statusPKP" v-model="formRegistrasi.informasiUmum.statusPKP"
+                                    class="me-2 form-check-input" type="radio" value="Non-PKP" required>
                                 <label class="form-check-label" for="PKP">Non-PKP</label>
                             </div>
-
                         </td>
-
                     </tr>
                     <tr>
                         <th scope="row">No. Telf*</th>
                         <td class="align-middle" colspan="3">
-                            <input v-model="nomorTelfon" class="w-100 form-control" type="text"
-                                placeholder="Nomor telefon perusahaan">
+                            <input v-model="formRegistrasi.informasiUmum.nomorTelfon" class="w-100 form-control"
+                                type="text" placeholder="Nomor telefon perusahaan" required>
                         </td>
                         <td>Fax</td>
                         <td>
-                            <input v-model="nomorFax" class="w-100 form-control" type="text"
-                                placeholder="Nomor fax perusahaan">
+                            <input v-model="formRegistrasi.informasiUmum.nomorFax" class="w-100 form-control"
+                                type="text" placeholder="Nomor fax perusahaan">
                         </td>
-
                     </tr>
                     <tr>
                         <th scope="row">Alamat*</th>
                         <td class="align-middle" colspan="5">
-                            <textarea class=" form-control" v-model="alamat"
-                                placeholder="Alamat sesuai KTP jika tak mempunyai NPWP"></textarea>
+                            <textarea class="form-control" v-model="formRegistrasi.informasiUmum.alamat"
+                                placeholder="Alamat sesuai KTP jika tak mempunyai NPWP" required></textarea>
                         </td>
                     </tr>
                     <tr>
@@ -99,17 +93,16 @@
                     <tr>
                         <th scope="row">Kota*</th>
                         <td class="align-middle" colspan="3">
-                            <input v-model="tempatKota" class="w-100 form-control" type="text"
-                                placeholder="Isi dengan kota di KTP jika tidak ada NPWP">
+                            <input v-model="formRegistrasi.informasiUmum.tempatKota" class="w-100 form-control"
+                                type="text" placeholder="Isi dengan kota di KTP jika tidak ada NPWP" required>
                         </td>
                         <td class="">
                             PO Box
                         </td>
                         <td class="">
-                            <input v-model="tempatPOBox" class="w-100 form-control" type="text" placeholder="Jika ada">
+                            <input v-model="formRegistrasi.informasiUmum.tempatPOBox" class="w-100 form-control"
+                                type="text" placeholder="Jika ada">
                         </td>
-
-
                     </tr>
 
                     <!-- SECTION: INFORMASI BISNIS -->
@@ -123,87 +116,85 @@
                                 Salah Satu) </small></th>
                         <td colspan="1" width="15%">
                             <div>
-                                <input name="jenisUsaha" v-model="jenisUsaha" class=" me-2 form-check-input"
-                                    type="radio" value="Hotel">
+                                <input name="jenisUsaha" v-model="formRegistrasi.informasiBisnis.jenisUsaha"
+                                    class="me-2 form-check-input" type="radio" value="Hotel" required>
                                 <label class="form-check-label" for="jenisUsaha">Hotel</label>
                             </div>
                             <div>
-                                <input name="jenisUsaha" v-model="jenisUsaha" class=" me-2 form-check-input"
-                                    type="radio" value="Pastry">
+                                <input name="jenisUsaha" v-model="formRegistrasi.informasiBisnis.jenisUsaha"
+                                    class="me-2 form-check-input" type="radio" value="Pastry" required>
                                 <label class="form-check-label" for="jenisUsaha">Pastry</label>
                             </div>
                             <div>
-                                <input name="jenisUsaha" v-model="jenisUsaha" class=" me-2 form-check-input"
-                                    type="radio" value="Manufaktur">
+                                <input name="jenisUsaha" v-model="formRegistrasi.informasiBisnis.jenisUsaha"
+                                    class="me-2 form-check-input" type="radio" value="Manufaktur" required>
                                 <label class="form-check-label" for="jenisUsaha">Manufaktur</label>
                             </div>
                         </td>
                         <td colspan="1" width="15%">
                             <div>
-                                <input name="jenisUsaha" v-model="jenisUsaha" class=" me-2 form-check-input"
-                                    type="radio" value="Restoran">
+                                <input name="jenisUsaha" v-model="formRegistrasi.informasiBisnis.jenisUsaha"
+                                    class="me-2 form-check-input" type="radio" value="Restoran" required>
                                 <label class="form-check-label" for="jenisUsaha">Restoran</label>
                             </div>
                             <div>
-                                <input name="jenisUsaha" v-model="jenisUsaha" class=" me-2 form-check-input"
-                                    type="radio" value="Distributor">
+                                <input name="jenisUsaha" v-model="formRegistrasi.informasiBisnis.jenisUsaha"
+                                    class="me-2 form-check-input" type="radio" value="Distributor" required>
                                 <label class="form-check-label" for="jenisUsaha">Distributor</label>
                             </div>
                             <div>
-                                <input name="jenisUsaha" v-model="jenisUsaha" class=" me-2 form-check-input"
-                                    type="radio" value="Ecommerce">
+                                <input name="jenisUsaha" v-model="formRegistrasi.informasiBisnis.jenisUsaha"
+                                    class="me-2 form-check-input" type="radio" value="Ecommerce" required>
                                 <label class="form-check-label" for="jenisUsaha">E-commerce</label>
                             </div>
                         </td>
                         <td colspan="1" width="15%">
                             <div>
-                                <input name="jenisUsaha" v-model="jenisUsaha" class=" me-2 form-check-input"
-                                    type="radio" value="Kafe">
+                                <input name="jenisUsaha" v-model="formRegistrasi.informasiBisnis.jenisUsaha"
+                                    class="me-2 form-check-input" type="radio" value="Kafe" required>
                                 <label class="form-check-label" for="jenisUsaha">Kafe</label>
                             </div>
                             <div>
-                                <input name="jenisUsaha" v-model="jenisUsaha" class=" me-2 form-check-input"
-                                    type="radio" value="FoC">
+                                <input name="jenisUsaha" v-model="formRegistrasi.informasiBisnis.jenisUsaha"
+                                    class="me-2 form-check-input" type="radio" value="FoC" required>
                                 <label class="form-check-label" for="jenisUsaha">FoC</label>
                             </div>
                             <div>
-                                <input name="jenisUsaha" v-model="jenisUsaha" class=" me-2 form-check-input"
-                                    type="radio" value="QSR">
+                                <input name="jenisUsaha" v-model="formRegistrasi.informasiBisnis.jenisUsaha"
+                                    class="me-2 form-check-input" type="radio" value="QSR" required>
                                 <label class="form-check-label" for="jenisUsaha">QSR</label>
                             </div>
                         </td>
                         <td colspan="1" width="15%">
                             <div>
-                                <input name="jenisUsaha" v-model="jenisUsaha" class=" me-2 form-check-input"
-                                    type="radio" value="Katering">
+                                <input name="jenisUsaha" v-model="formRegistrasi.informasiBisnis.jenisUsaha"
+                                    class="me-2 form-check-input" type="radio" value="Katering" required>
                                 <label class="form-check-label" for="jenisUsaha">Katering</label>
                             </div>
                             <div>
-                                <input name="jenisUsaha" v-model="jenisUsaha" class=" me-2 form-check-input"
-                                    type="radio" value="Cabang">
+                                <input name="jenisUsaha" v-model="formRegistrasi.informasiBisnis.jenisUsaha"
+                                    class="me-2 form-check-input" type="radio" value="Cabang" required>
                                 <label class="form-check-label" for="jenisUsaha">Cabang</label>
                             </div>
                             <div>
-                                <input name="jenisUsaha" v-model="jenisUsaha" class=" me-2 form-check-input"
-                                    type="radio" value="Supermarket">
+                                <input name="jenisUsaha" v-model="formRegistrasi.informasiBisnis.jenisUsaha"
+                                    class="me-2 form-check-input" type="radio" value="Supermarket" required>
                                 <label class="form-check-label" for="jenisUsaha">Supermarket</label>
                             </div>
                         </td>
                         <td colspan="1" width="15%">
                             <div>
-                                <input name="jenisUsaha" v-model="jenisUsaha" class="me-2 form-check-input" type="radio"
-                                    value="Other">
+                                <input name="jenisUsaha" v-model="formRegistrasi.informasiBisnis.jenisUsaha"
+                                    class="me-2 form-check-input" type="radio" value="Other" required>
                                 <label class="form-check-label" for="jenisUsaha">Other</label>
                             </div>
                             <div>
-                                <input name="jenisUsaha" v-model="jenisUsaha" class="me-2 form-check-input" type="radio"
-                                    value="Toko">
+                                <input name="jenisUsaha" v-model="formRegistrasi.informasiBisnis.jenisUsaha"
+                                    class="me-2 form-check-input" type="radio" value="Toko" required>
                                 <label class="form-check-label" for="jenisUsaha">Toko</label>
                             </div>
                         </td>
-
                     </tr>
-
 
                     <tr>
                         <th scope="row">Tahun Operasi*</th>
@@ -211,66 +202,65 @@
                             Tahun
                         </td>
                         <td colspan="2">
-                            <input v-model="tahunOperasi" class="w-100 form-control" type="text"
-                                placeholder="Misal: 2022">
+                            <input v-model="formRegistrasi.informasiBisnis.tahunOperasi" class="w-100 form-control"
+                                type="text" placeholder="Misal: 2022" required>
                         </td>
                         <td colspan="1">
                             Bulan
                         </td>
                         <td colspan="2">
-                            <input v-model="bulanOperasi" class="w-100 form-control" type="text"
-                                placeholder="Misal: 03">
+                            <input v-model="formRegistrasi.informasiBisnis.bulanOperasi" class="w-100 form-control"
+                                type="text" placeholder="Misal: 03" required>
                         </td>
-
                     </tr>
 
                     <tr>
                         <th scope="row">Nama Outlet*</th>
                         <td class="align-middle" colspan="5">
-                            <input v-model="namaOutlet" class="w-100 form-control" type="text"
-                                placeholder="Nama Outlet (Untuk customer E-commerce tambahkan IG/FB/Website)">
+                            <input v-model="formRegistrasi.informasiBisnis.namaOutlet" class="w-100 form-control"
+                                type="text"
+                                placeholder="Nama Outlet (Untuk customer E-commerce tambahkan IG/FB/Website)" required>
                         </td>
-
                     </tr>
                     <tr>
                         <th scope="row">Telf Outlet*</th>
                         <td class="align-middle" colspan="5">
-                            <input v-model="nomorTelfonOutlet" class="w-100 form-control" type="text"
-                                placeholder="No Telf/WA Outlet">
+                            <input v-model="formRegistrasi.informasiBisnis.nomorTelfonOutlet" class="w-100 form-control"
+                                type="text" placeholder="No Telf/WA Outlet" required>
                         </td>
-
                     </tr>
                     <tr>
                         <th scope="row">Alamat Outlet* <small class="text-secondary">(Alamat Pengiriman)</small></th>
                         <td class="align-middle" colspan="5">
                             <div class="d-flex flex-row justify-content-center mb-2">
                                 <div>
-                                    <input name="jenisPengiriman" v-model="jenisPengiriman"
-                                        class=" me-2 form-check-input" type="radio" value="Pengantaran">
+                                    <input name="jenisPengiriman"
+                                        v-model="formRegistrasi.informasiBisnis.jenisPengiriman"
+                                        class="me-2 form-check-input" type="radio" value="Pengantaran" required>
                                     <label class="form-check-label me-4" for="jenisPengiriman">Pengantaran</label>
                                 </div>
                                 <div>
-                                    <input name="jenisPengiriman" v-model="jenisPengiriman"
-                                        class=" me-2 form-check-input" type="radio" value="AmbilSendiri">
+                                    <input name="jenisPengiriman"
+                                        v-model="formRegistrasi.informasiBisnis.jenisPengiriman"
+                                        class="me-2 form-check-input" type="radio" value="AmbilSendiri" required>
                                     <label class="form-check-label" for="jenisPengiriman">Ambil Sendiri</label>
                                 </div>
                             </div>
-                            <textarea class=" form-control" v-model="alamatOutlet"
-                                placeholder="Alamat Outlet/Toko/Tempat Jualan"></textarea>
-
+                            <textarea class="form-control" v-model="formRegistrasi.informasiBisnis.alamatOutlet"
+                                placeholder="Alamat Outlet/Toko/Tempat Jualan" required></textarea>
                         </td>
-
                     </tr>
                     <tr>
                         <th scope="row">Kota/Kabupaten Outlet*</th>
                         <td class="align-middle" colspan="2">
-                            <input v-model="kotaOutlet" class="w-100 form-control" type="text"
-                                placeholder="Kota atau Kabupaten Lokasi Outlet">
+                            <input v-model="formRegistrasi.informasiBisnis.kotaOutlet" class="w-100 form-control"
+                                type="text" placeholder="Kota atau Kabupaten Lokasi Outlet" required>
                         </td>
                         <th scope="row">Delivery Route </br><small class="text-secondary">(Rute Pengiriman)</small>*
                         </th>
                         <td class="align-middle" colspan="2">
-                            <select v-model="rutePengiriman" class="w-100 form-select">
+                            <select v-model="formRegistrasi.informasiBisnis.rutePengiriman" class="w-100 form-select"
+                                required>
                                 <option disabled value="">Pilih salah satu rute</option>
                                 <option>Makassar</option>
                                 <option>Makassar 1</option>
@@ -280,7 +270,6 @@
                                 <option>Makassar 5</option>
                             </select>
                         </td>
-
                     </tr>
                 </tbody>
             </table>
@@ -292,47 +281,40 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, reactive } from 'vue';
 
+const formRegistrasi = reactive({
+    informasiUmum: {
+        namaPerusahaan: '',
+        nomorNPWP: '',
+        statusPKP: '',
+        nomorTelfon: '',
+        nomorFax: '',
+        alamat: '',
+        tempatKota: '',
+        tempatPOBox: ''
+    },
+    informasiBisnis: {
+        jenisUsaha: '',
+        tahunOperasi: '',
+        bulanOperasi: '',
+        namaOutlet: '',
+        jenisPengiriman: '',
+        alamatOutlet: '',
+        nomorTelfonOutlet: '',
+        kotaOutlet: '',
+        rutePengiriman: 'Makassar'
+    }
+});
 
-const namaPerusahaan = ref('');
-const nomorNPWP = ref('');
-const statusPKP = ref('');
-const nomorTelfon = ref('');
-const nomorFax = ref('');
-const alamat = ref('');
-const tempatKota = ref('');
-const tempatPOBox = ref('');
-
-const jenisUsaha = ref('');
-const tahunOperasi = ref('');
-const bulanOperasi = ref('');
-const namaOutlet = ref('');
-const jenisPengiriman = ref('');
-const alamatOutlet = ref('');
-const nomorTelfonOutlet = ref('')
-const kotaOutlet = ref('');
-const rutePengiriman = ref('Makassar');
 
 const submitFormRegistrasi = () => {
+    const formRegistrasiJson = JSON.stringify(formRegistrasi)
     console.log(
-        namaPerusahaan.value,
-        nomorNPWP.value,
-        statusPKP.value,
-        nomorTelfon.value,
-        nomorFax.value,
-        alamat.value,
-        tempatKota.value,
-        tempatPOBox.value,
-        jenisUsaha.value,
-        tahunOperasi.value,
-        bulanOperasi.value,
-        namaOutlet.value,
-        jenisPengiriman.value,
-        alamatOutlet.value,
-        nomorTelfonOutlet.value,
-        kotaOutlet.value,
-        rutePengiriman.value
+        formRegistrasiJson
+    )
+    console.log(
+        JSON.parse(formRegistrasiJson)
     )
 
 }
