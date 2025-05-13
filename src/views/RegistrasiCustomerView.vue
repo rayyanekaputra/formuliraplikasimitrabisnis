@@ -53,7 +53,7 @@
                     <th scope="row">No. NPWP*</th>
                     <td class="align-middle" colspan="3">
                         <input v-model="nomorNPWP" class="w-100 form-control" type="text"
-                            placeholder="Isi dengan nama di KTP jika tidak ada NPWP">
+                            placeholder="Isi dengan NIK di KTP jika tidak ada NPWP">
                     </td>
                     <td colspan="3">
                         <div>
@@ -78,7 +78,8 @@
                     </td>
                     <td>Fax</td>
                     <td>
-                        <input v-model="nomorFax" class="w-100 form-control" type="text" placeholder="Nomor fax perusahaan">
+                        <input v-model="nomorFax" class="w-100 form-control" type="text"
+                            placeholder="Nomor fax perusahaan">
                     </td>
 
                 </tr>
@@ -98,7 +99,7 @@
                     <th scope="row">Kota*</th>
                     <td class="align-middle" colspan="3">
                         <input v-model="tempatKota" class="w-100 form-control" type="text"
-                            placeholder="Isi dengan nama di KTP jika tidak ada NPWP">
+                            placeholder="Isi dengan kota di KTP jika tidak ada NPWP">
                     </td>
                     <td class="">
                         PO Box
@@ -117,8 +118,9 @@
                     </th>
                 </tr>
                 <tr>
-                    <th scope="row" colspan="1" class="fs-">Jenis Usaha*<br />(Pilih Salah Satu) </th>
-                    <td colspan="1">
+                    <th scope="row" colspan="1" class="fs-">Jenis Usaha*<br /> <small class="text-secondary"> (Pilih
+                            Salah Satu) </small></th>
+                    <td colspan="1" width="15%">
                         <div>
                             <input name="jenisUsaha" v-model="jenisUsaha" class=" me-2 form-check-input" type="radio"
                                 value="Hotel">
@@ -135,72 +137,67 @@
                             <label class="form-check-label" for="jenisUsaha">Manufaktur</label>
                         </div>
                     </td>
-                    <td colspan="1">
+                    <td colspan="1" width="15%">
                         <div>
                             <input name="jenisUsaha" v-model="jenisUsaha" class=" me-2 form-check-input" type="radio"
-                                value="Hotel">
-                            <label class="form-check-label" for="jenisUsaha">Hotel</label>
+                                value="Restoran">
+                            <label class="form-check-label" for="jenisUsaha">Restoran</label>
                         </div>
                         <div>
                             <input name="jenisUsaha" v-model="jenisUsaha" class=" me-2 form-check-input" type="radio"
-                                value="Pastry">
-                            <label class="form-check-label" for="jenisUsaha">Pastry</label>
+                                value="Distributor">
+                            <label class="form-check-label" for="jenisUsaha">Distributor</label>
                         </div>
                         <div>
                             <input name="jenisUsaha" v-model="jenisUsaha" class=" me-2 form-check-input" type="radio"
-                                value="Manufaktur">
-                            <label class="form-check-label" for="jenisUsaha">Manufaktur</label>
-                        </div>
-                    </td>
-                    <td colspan="1">
-                        <div>
-                            <input name="jenisUsaha" v-model="jenisUsaha" class=" me-2 form-check-input" type="radio"
-                                value="Hotel">
-                            <label class="form-check-label" for="jenisUsaha">Hotel</label>
-                        </div>
-                        <div>
-                            <input name="jenisUsaha" v-model="jenisUsaha" class=" me-2 form-check-input" type="radio"
-                                value="Pastry">
-                            <label class="form-check-label" for="jenisUsaha">Pastry</label>
-                        </div>
-                        <div>
-                            <input name="jenisUsaha" v-model="jenisUsaha" class=" me-2 form-check-input" type="radio"
-                                value="Manufaktur">
-                            <label class="form-check-label" for="jenisUsaha">Manufaktur</label>
+                                value="Ecommerce">
+                            <label class="form-check-label" for="jenisUsaha">E-commerce</label>
                         </div>
                     </td>
-                    <td colspan="1">
+                    <td colspan="1" width="15%">
                         <div>
                             <input name="jenisUsaha" v-model="jenisUsaha" class=" me-2 form-check-input" type="radio"
-                                value="Hotel">
-                            <label class="form-check-label" for="jenisUsaha">Hotel</label>
+                                value="Kafe">
+                            <label class="form-check-label" for="jenisUsaha">Kafe</label>
                         </div>
                         <div>
                             <input name="jenisUsaha" v-model="jenisUsaha" class=" me-2 form-check-input" type="radio"
-                                value="Pastry">
-                            <label class="form-check-label" for="jenisUsaha">Pastry</label>
+                                value="FoC">
+                            <label class="form-check-label" for="jenisUsaha">FoC</label>
                         </div>
                         <div>
                             <input name="jenisUsaha" v-model="jenisUsaha" class=" me-2 form-check-input" type="radio"
-                                value="Manufaktur">
-                            <label class="form-check-label" for="jenisUsaha">Manufaktur</label>
+                                value="QSR">
+                            <label class="form-check-label" for="jenisUsaha">QSR</label>
                         </div>
                     </td>
-                    <td colspan="1">
+                    <td colspan="1" width="15%">
+                        <div>
+                            <input name="jenisUsaha" v-model="jenisUsaha" class=" me-2 form-check-input" type="radio"
+                                value="Katering">
+                            <label class="form-check-label" for="jenisUsaha">Katering</label>
+                        </div>
+                        <div>
+                            <input name="jenisUsaha" v-model="jenisUsaha" class=" me-2 form-check-input" type="radio"
+                                value="Cabang">
+                            <label class="form-check-label" for="jenisUsaha">Cabang</label>
+                        </div>
+                        <div>
+                            <input name="jenisUsaha" v-model="jenisUsaha" class=" me-2 form-check-input" type="radio"
+                                value="Supermarket">
+                            <label class="form-check-label" for="jenisUsaha">Supermarket</label>
+                        </div>
+                    </td>
+                    <td colspan="1" width="15%">
                         <div>
                             <input name="jenisUsaha" v-model="jenisUsaha" class="me-2 form-check-input" type="radio"
-                                value="Hotel">
-                            <label class="form-check-label" for="jenisUsaha">Hotel</label>
-                        </div>
-                        <div>
-                            <input name="jenisUsaha" v-model="jenisUsaha" class="me-2 form-check-input" type="radio"
-                                value="Pastry">
-                            <label class="form-check-label" for="jenisUsaha">Pastry</label>
+                                value="Other">
+                            <label class="form-check-label" for="jenisUsaha">Other</label>
                         </div>
                         <div>
                             <input name="jenisUsaha" v-model="jenisUsaha" class="me-2 form-check-input" type="radio"
-                                value="Manufaktur">
-                            <label class="form-check-label" for="jenisUsaha">Manufaktur</label>
+                                value="Toko">
+                            <label class="form-check-label" for="jenisUsaha">Toko</label>
                         </div>
                     </td>
 
@@ -213,42 +210,73 @@
                         Tahun
                     </td>
                     <td colspan="2">
-                        <input v-model="tahunOperasi" class="w-100 form-control" type="text"
-                            placeholder="Isi dengan nama di KTP jika tidak ada NPWP">
+                        <input v-model="tahunOperasi" class="w-100 form-control" type="text" placeholder="Misal: 2022">
                     </td>
                     <td colspan="1">
                         Bulan
                     </td>
                     <td colspan="2">
-                        <input v-model="bulanOperasi" class="w-100 form-control" type="text" placeholder="01">
+                        <input v-model="bulanOperasi" class="w-100 form-control" type="text" placeholder="Misal: 03">
                     </td>
 
                 </tr>
 
                 <tr>
-                    <th scope="row">Alamat*</th>
-                    <td class="align-middle" colspan="4">
-                        <textarea class=" form-control" v-model="alamat"
-                            placeholder="Alamat sesuai KTP jika tak mempunyai NPWP"></textarea>
+                    <th scope="row">Nama Outlet*</th>
+                    <td class="align-middle" colspan="5">
+                        <input v-model="namaOutlet" class="w-100 form-control" type="text"
+                            placeholder="Nama Outlet (Untuk customer E-commerce tambahkan IG/FB/Website)">
                     </td>
+
                 </tr>
                 <tr>
-                    <td class="text-center align-middle" colspan="4">
-                        *Sesuai dengan yang tertera pada kartu NPWP
+                    <th scope="row">Telf Outlet*</th>
+                    <td class="align-middle" colspan="5">
+                        <input v-model="namaOutlet" class="w-100 form-control" type="text"
+                            placeholder="No Telf/WA Outlet">
                     </td>
+
                 </tr>
                 <tr>
-                    <th scope="row">Kota*</th>
-                    <td class="align-middle">
-                        <input v-model="tempatKota" class="w-100 form-control" type="text"
-                            placeholder="Isi dengan nama di KTP jika tidak ada NPWP">
+                    <th scope="row">Alamat Outlet* <small class="text-secondary">(Alamat Pengiriman)</small></th>
+                    <td class="align-middle" colspan="5">
+                        <div class="d-flex flex-row justify-content-center mb-2">
+                            <div>
+                                <input name="jenisPengiriman" v-model="jenisPengiriman" class=" me-2 form-check-input"
+                                    type="radio" value="Pengantaran">
+                                <label class="form-check-label me-4" for="jenisPengiriman">Pengantaran</label>
+                            </div>
+                            <div>
+                                <input name="jenisPengiriman" v-model="jenisPengiriman" class=" me-2 form-check-input"
+                                    type="radio" value="AmbilSendiri">
+                                <label class="form-check-label" for="jenisPengiriman">Ambil Sendiri</label>
+                            </div>
+                        </div>
+                        <textarea class=" form-control" v-model="alamatOutlet"
+                            placeholder="Alamat Outlet/Toko/Tempat Jualan"></textarea>
+
                     </td>
-                    <td class="text-center align-middle">
-                        PO Box
+
+                </tr>
+                <tr>
+                    <th scope="row">Kota/Kabupaten Outlet*</th>
+                    <td class="align-middle" colspan="2">
+                        <input v-model="kotaOutlet" class="w-100 form-control" type="text"
+                            placeholder="Kota atau Kabupaten Lokasi Outlet">
                     </td>
-                    <td class="align-middle">
-                        <input v-model="tempatPOBox" class="w-100 form-control" type="text" placeholder="Jika ada">
+                    <th scope="row">Delivery Route </br><small class="text-secondary">(Rute Pengiriman)</small>*</th>
+                    <td class="align-middle" colspan="2">
+                        <select v-model="rutePengiriman" class="w-100 form-select">
+                        <option disabled value="">Pilih salah satu rute</option>
+                        <option>Makassar</option>
+                        <option>Makassar 1</option>
+                        <option>Makassar 2</option>
+                        <option>Makassar 3</option>
+                        <option>Makassar 4</option>
+                        <option>Makassar 5</option>
+                        </select>
                     </td>
+
                 </tr>
             </tbody>
         </table>
@@ -257,6 +285,24 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
+
+const namaPerusahaan = ref('');
+const nomorNPWP = ref('');
+const statusPKP = ref('');
+const nomorTelfon = ref('');
+const nomorFax = ref('');
+const alamat = ref('');
+const tempatKota = ref('');
+const tempatPOBox = ref('');
+const jenisUsaha = ref('');
+const tahunOperasi = ref('');
+const bulanOperasi = ref('');
+const namaOutlet = ref('');
+const jenisPengiriman = ref('');
+const alamatOutlet = ref('');
+const kotaOutlet = ref('');
+const rutePengiriman = ref('Makassar');
 
 </script>
 
