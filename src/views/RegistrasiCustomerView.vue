@@ -283,7 +283,8 @@
 
 <script setup>
 import { ref, reactive } from 'vue';
-import html2pdf from "html2pdf.js";
+import { jsPDF } from "jspdf";
+import { applyPlugin } from 'jspdf-autotable'
 
 
 const formRegistrasi = reactive({
@@ -311,16 +312,15 @@ const formRegistrasi = reactive({
 });
 
 const formRegistrasiRef = ref(null) //karena ini sebelum onMounted ter-render. nanti ter-override sendiri onMounted dari ref div di atas.
+
 const exportToPDF = () => {
-    const opt = {
-        margin: 1,
-        filename: 'myfile.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
-        jsPDF: { unit: 'px', format: 'a4', orientation: 'portrait' }
-    };
-    if (formRegistrasiRef.value) {
-        html2pdf().set(opt).from(formRegistrasiRef.value).save()
-    }
+    applyPlugin(jsPDF)
+
+    const doc = new jsPDF()
+    doc.autoTable({ html: formRegistrasiRef.value,
+        useCss: true
+     })
+    doc.save('table.pdf')
 }
 
 const submitFormRegistrasi = () => {
