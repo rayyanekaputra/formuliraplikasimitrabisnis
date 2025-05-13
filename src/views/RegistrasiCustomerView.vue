@@ -1,7 +1,7 @@
 <template>
     <div class="table-responsive">
         <form @submit.prevent="submitFormRegistrasi">
-            <table class="table table-bordered text-wrap text-break">
+            <table class="table table-bordered text-wrap text-break" ref="formRegistrasiRef">
                 <!-- FORMAT TABEL, 12 TERSEDIA, 6 JI DIPAKE -->
                 <colgroup>
                     <col span="12">
@@ -274,6 +274,7 @@
                 </tbody>
             </table>
             <button class="btn btn-primary w-sm-100" type="submit">Registrasi Customer</button>
+            <button class="btn btn-primary w-sm-100" @click="exportToPDF">Simpan atau Print PDF</button>
         </form>
 
 
@@ -282,6 +283,8 @@
 
 <script setup>
 import { ref, reactive } from 'vue';
+import html2pdf from "html2pdf.js";
+
 
 const formRegistrasi = reactive({
     informasiUmum: {
@@ -307,6 +310,18 @@ const formRegistrasi = reactive({
     }
 });
 
+const formRegistrasiRef = ref(null) //karena ini sebelum onMounted ter-render. nanti ter-override sendiri onMounted dari ref div di atas.
+const exportToPDF = () => {
+    const opt = {
+        margin: 1,
+        filename: 'myfile.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        jsPDF: { unit: 'px', format: 'a4', orientation: 'portrait' }
+    };
+    if (formRegistrasiRef.value) {
+        html2pdf().set(opt).from(formRegistrasiRef.value).save()
+    }
+}
 
 const submitFormRegistrasi = () => {
     const formRegistrasiJson = JSON.stringify(formRegistrasi)
