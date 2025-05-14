@@ -1,37 +1,60 @@
 <template>
     <div>
-        <p>fetch ki </p>
-        <button @click="getCustomers">fetch api skrg</button>
+        <p>total banyak {{ totalCustomers }} </p>
+        <ul>
+            <li v-for="(cust, index) in currentCustomersRange" :key="cust.bp_code">
+                <p>{{index}}) Customer {{cust.bp_code}}: {{ cust }}</p>
+            </li>
+        </ul>
+        <button class="btn btn-primary" @click="prevCustomers">
+            Prev
+        </button>
+        <button class="btn btn-primary" @click="nextCustomers">
+            Next
+        </button>
+
     </div>
 </template>
 <script setup>
 import axios from 'axios';
-import { ref,computed,onMounted } from 'vue';
+import { ref, computed, onMounted } from 'vue';
 
-const currentPage = 1
-const itemsPerPage = 10
-const allItems = ref({})
-const totalPages = Math.ceil(allItems.length / itemsPerPage)
+// DEFINITIONS
+const currentPage = ref(1)
+const customersPerPage = 10
+const allCustomers = ref([])
 
-// const startIndex = (currentPage - 1) * itemsPerPage
-// const endIndex = startIndex + itemsPerPage
-// const currentItems = allItems.slice(startIndex, endIndex)
-
-const getCustomers = async () => {
+//DATA: GET to API
+onMounted(async () => {
     try {
         const res = await axios.get('/api/regcustomer/customers.php')
-        allItems.value = res.data
-        console.log(res.data)
+        allCustomers.value = res.data
+        // console.log(res.data)
 
-        console.log(typeof (allItems))
     } catch (error) {
         console.log(error)
         throw error
     }
-}
+})
 
+//LOGIC: Limit 10 Customers per Page
+const totalCustomers = computed(() => {
+    return allCustomers.value.length
+})
+const totalPages = computed(() => {
+    return Math.ceil(allCustomers.length / customersPerPage)
+})
+const currentCustomersRange = computed(() => {
+    const start = (currentPage.value - 1) * customersPerPage
+    const end = start + customersPerPage
+    const rangedCustomers = allCustomers.value.slice(start, end)
+    console.log(rangedCustomers)
+    return rangedCustomers
+})
 
-
+//LOGIC: Next and Prev Range
+const nextCustomers = () => currentPage.value++
+const prevCustomers = () => currentPage.value--
 
 </script>
 
