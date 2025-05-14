@@ -3,7 +3,7 @@
         <p>total banyak {{ totalCustomers }} </p>
         <ul>
             <li v-for="(cust, index) in currentCustomersRange" :key="cust.bp_code">
-                <p>{{index}}) Customer {{cust.bp_code}}: {{ cust }}</p>
+                <p>{{cust.bp_code}}: {{ cust.date_input}} {{ cust.sales}} {{ cust.nama_ar }}</p>
             </li>
         </ul>
         <button class="btn btn-primary" @click="prevCustomers">
