@@ -18,6 +18,49 @@
 
 }
 
+@media print {
+
+    //PAPER PRINT SETTING
+    @page {
+        margin: 1cm;
+    }
+
+    //WEB DISPLAY ON PRNT
+    * {
+        font-size: 12px;
+    }
+
+    ::placeholder {
+        opacity: 0.5 !important;
+    }
+
+    table,
+    th,
+    td,
+    tr {
+        border: 1px solid black !important;
+    }
+
+    .table-light {
+        print-color-adjust: exact; //karena defaultnya dia eco dan ignore background color
+        background-color: #d2d2cf !important;
+
+
+    }
+
+    .table-dark {
+        print-color-adjust: exact; //karena defaultnya dia eco dan ignore background color
+
+        th {
+            background-color: #d2d2cf !important;
+        }
+
+        h1 {
+            color: black;
+        }
+    }
+}
+
 body {
     background-color: white;
     color: white;
