@@ -286,7 +286,7 @@
 <script setup>
 import { ref, reactive } from 'vue';
 
-
+//LOGIC: Submit and Print
 const formRegistrasi = reactive({
     informasiUmum: {
         namaPerusahaan: '',
@@ -310,11 +310,8 @@ const formRegistrasi = reactive({
         rutePengiriman: 'Makassar'
     }
 });
-
 const formRegistrasiRef = ref(null) //karena ini sebelum onMounted ter-render. nanti ter-override sendiri onMounted dari ref div di atas.
-
 const exportToPDF = () => window.print();
-
 const submitFormRegistrasi = () => {
     const formRegistrasiJson = JSON.stringify(formRegistrasi)
     console.log(

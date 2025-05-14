@@ -1,10 +1,13 @@
 <script setup>
-import RegistrasiCustomerView from './views/RegistrasiCustomerView.vue';
 import './styles.scss'
 </script>
 
 <template>
-  <RegistrasiCustomerView />
+   <nav>
+    <RouterLink to="/">Go to Home</RouterLink>
+    <RouterLink to="/RegistrasiCustomer"> Go to RegistrasiCustomer</RouterLink>
+  </nav>
+  <RouterView/>
 </template>
 
 
