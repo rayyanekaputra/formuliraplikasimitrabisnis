@@ -3,13 +3,13 @@
         <p>total banyak {{ totalCustomers }} </p>
         <ul>
             <li v-for="(cust, index) in currentCustomersRange" :key="cust.bp_code">
-                <p>{{cust.bp_code}}: {{ cust.date_input}} {{ cust.sales}} {{ cust.nama_ar }}</p>
+                <p>{{ cust.bp_code }}: {{ cust.date_input }} {{ cust.nama_outlet }} {{ cust.sales }} {{ cust.nama_ar }}</p>
             </li>
         </ul>
-        <button class="btn btn-primary" @click="prevCustomers">
+        <button class="btn btn-primary" :class="{ 'disabled': currentPage === 1 }" @click="prevCustomers">
             Prev
         </button>
-        <button class="btn btn-primary" @click="nextCustomers">
+        <button class="btn btn-primary" :class="{ 'disabled': currentPage === totalPages }" @click="nextCustomers">
             Next
         </button>
 
@@ -21,7 +21,7 @@ import { ref, computed, onMounted } from 'vue';
 
 // DEFINITIONS
 const currentPage = ref(1)
-const customersPerPage = 10
+const customersPerPage = 20
 const allCustomers = ref([])
 
 //DATA: GET to API
@@ -42,19 +42,28 @@ const totalCustomers = computed(() => {
     return allCustomers.value.length
 })
 const totalPages = computed(() => {
-    return Math.ceil(allCustomers.length / customersPerPage)
+    return Math.ceil(allCustomers.value.length / customersPerPage)
 })
+
+const startPage = computed(() => {
+    return (currentPage.value - 1) * customersPerPage
+})
+
+const endPage = computed(() => {
+    return startPage.value + customersPerPage
+})
+
 const currentCustomersRange = computed(() => {
-    const start = (currentPage.value - 1) * customersPerPage
-    const end = start + customersPerPage
-    const rangedCustomers = allCustomers.value.slice(start, end)
+    const rangedCustomers = allCustomers.value.slice(startPage.value, endPage.value)
     console.log(rangedCustomers)
     return rangedCustomers
 })
 
+
 //LOGIC: Next and Prev Range
-const nextCustomers = () => currentPage.value++
-const prevCustomers = () => currentPage.value--
+const nextCustomers = () => currentPage.value !== totalPages && currentPage.value++;
+const prevCustomers = () => currentPage.value !== 1 && currentPage.value--;
+
 
 </script>
 
